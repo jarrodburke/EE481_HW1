@@ -1,0 +1,7 @@
+from PIL import Image, ImageEnhance
+img = Image.open('valley.tif')
+
+enhance = ImageEnhance.Contrast(img)
+
+img1 = enhance.enhance(3.65)
+img1.save('eValley.tif')
