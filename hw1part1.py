@@ -6,16 +6,22 @@ image_path = "Winter.png"
 image = cv2.imread(image_path)
 
 norm_image = cv2.normalize(image,None, 0, 255, cv2.NORM_MINMAX)
-norm_image_color = cv2.cvtColor(norm_image , cv2.COLOR_BGR2RGB)
+
 norm_image_bw = cv2.cvtColor(norm_image,cv2.COLOR_BGR2GRAY)
 
-#cv2.imshow("norm_image_color", norm_image_color)
+cv2.imshow("norm_image_color", norm_image)
+
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+
 cv2.imshow("norm_image_bw", norm_image_bw)
 
 cv2.waitKey(0)
 cv2.destroyAllWindows()
 
 hist = cv2.calcHist([norm_image_bw], [0], None, [256], [0, 256])
+
+# Normalize the histogram
 
 # Plot the histogram in black and white
 plt.figure(figsize=(8, 6))
