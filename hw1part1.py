@@ -21,7 +21,6 @@ cv2.imshow("norm_image_bw", norm_image_bw)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
 
-hist = cv2.calcHist([norm_image_bw], [0], None, [256], [0, 256])
 
 
 
@@ -38,7 +37,6 @@ crop_img = norm_image_bw[400:500, 400:500]
 cv2.imshow("crop", crop_img)
 cv2.waitKey(0)
 
-hist = cv2.calcHist([crop_img], [0], None, [256], [0, 256])
 
 
 plt.figure(figsize=(8, 6))
