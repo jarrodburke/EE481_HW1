@@ -16,7 +16,7 @@ plt.xlim([0,256])
 plt.grid()
 
 plt.subplot(122)
-plt.title('Original Image')
+plt.title('Equalized Image')
 plt.plot(hist_eq, color='black')
 plt.xlim([0,256])
 plt.grid()
