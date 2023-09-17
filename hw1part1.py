@@ -26,7 +26,7 @@ cv2.destroyAllWindows()
 
 plt.figure(figsize=(8, 6))
 plt.hist(norm_image_bw.ravel(), bins=256, range=(0, 256), color='black', alpha=0.7)
-plt.title('Histogram of Normalized Image (Black and White)')
+plt.title('Histogram of Normalized Winter Image (Black and White)')
 plt.xlabel('Pixel Value')
 plt.ylabel('Frequency')
 plt.xlim(0, 256)  
@@ -41,7 +41,7 @@ cv2.waitKey(0)
 
 plt.figure(figsize=(8, 6))
 plt.hist(crop_img.ravel(), bins=256, range=(0, 256), color='black', alpha=0.7)
-plt.title('Histogram of Normalized Image (Black and White)')
+plt.title('Histogram of Normalized Cropped Winter Image (Black and White)')
 plt.xlabel('Pixel Value')
 plt.ylabel('Frequency')
 plt.xlim(0, 256) 
@@ -51,7 +51,46 @@ plt.show()
 plt.figure(figsize=(8, 6))
 plt.hist(norm_image_bw.ravel(), bins=256, range=(0, 256), color='black', alpha=0.5, label='Grayscale Image')
 plt.hist(crop_img.ravel(), bins=256, range=(0, 256), color='red', alpha=0.5, label='Cropped Region')
-plt.title('Histograms of Grayscale Image and Cropped Region')
+plt.title('Histograms of Winter Image and Cropped Region')
+plt.xlabel('Pixel Value')
+plt.ylabel('Frequency')
+plt.xlim(0, 256)
+plt.grid(axis='y', linestyle='--', alpha=0.7)
+plt.legend()
+plt.show()
+
+
+
+
+image_path = "Desert.png"
+image2 = cv2.imread(image_path)
+
+
+
+norm_image2 = cv2.normalize(image2,None, 0, 255, cv2.NORM_MINMAX)
+
+norm_image_bw2 = cv2.cvtColor(norm_image2,cv2.COLOR_BGR2GRAY)
+
+
+cv2.imshow("norm_image_bw_2", norm_image_bw2)
+
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+
+plt.figure(figsize=(8, 6))
+plt.hist(norm_image_bw2.ravel(), bins=256, range=(0, 256), color='black', alpha=0.7)
+plt.title('Histogram of Desert')
+plt.xlabel('Pixel Value')
+plt.ylabel('Frequency')
+plt.xlim(0, 256)  
+plt.grid(axis='y', linestyle='--', alpha=0.7)
+plt.show()
+
+
+plt.figure(figsize=(8, 6))
+plt.hist(norm_image_bw.ravel(), bins=256, range=(0, 256), color='black', alpha=0.5, label='Snow Image')
+plt.hist(norm_image_bw2.ravel(), bins=256, range=(0, 256), color='red', alpha=0.5, label='Desert Image')
+plt.title('Histograms of Desert and Winter')
 plt.xlabel('Pixel Value')
 plt.ylabel('Frequency')
 plt.xlim(0, 256)
